@@ -1,0 +1,104 @@
+﻿<UserControl x:Class="VidaBox.Views.UserInscription"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:VidaBox.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="1280">
+    <UserControl.Resources>
+        <Color x:Key="CouleurText">SteelBlue</Color>
+        <Color x:Key="BackgroundInput">#FF333333</Color>
+        <Color x:Key="BorderInput">#FF7C7C7C</Color>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Row="2" Background="#000">
+            <StackPanel>
+                <Image Source="/Ressources/logo2.jpeg"/>
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="0" Grid.Column="1" Background="#333">
+            <StackPanel Margin="0,0,0,0">
+                <StackPanel.Background>
+                    <ImageBrush ImageSource="/Ressources/affiche.jpg" Stretch="UniformToFill" Opacity=".1"/>
+                </StackPanel.Background>
+                <StackPanel  Margin="100, 20, 100, 100">
+                    <StackPanel>
+                        <TextBlock x:Name="InfoUtilisateur" Height="30" VerticalAlignment="Center" Margin="0,0,0,10" TextAlignment="Center" Foreground="OrangeRed" FontSize="24"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock TextWrapping="Wrap" Text="Nom :" Margin="0" FontSize="22" Foreground="Gainsboro" FontFamily="Corbel Light" FontWeight="Black" />
+                        <TextBox x:Name="InputNom" Margin="0,10,0,0" Background="#333" BorderThickness="1" BorderBrush="#FF7C7C7C" Foreground="White" FontSize="18" FontFamily="Corbel Light" Padding="5,5,5,5" VerticalContentAlignment="Center" SelectionOpacity="0.7" SelectionBrush="{x:Null}"/>
+                        <TextBlock x:Name="InfoNom" Foreground="#FFFF4848" FontSize="12"></TextBlock>
+                    </StackPanel>
+                    <StackPanel Margin="0, 20, 0, 0">
+                        <TextBlock TextWrapping="Wrap" Text="Prénom :" Margin="0" FontSize="22" Foreground="Gainsboro" FontFamily="Corbel Light" />
+                        <TextBox x:Name="InputPrenom" Margin="0,10,0,0" Background="#333" BorderThickness="1" BorderBrush="#FF7C7C7C" Foreground="White" FontSize="18" Padding="5,5,5,5" VerticalContentAlignment="Center" FontFamily="Corbel Light" SelectionBrush="{x:Null}"/>
+                        <TextBlock x:Name="InfoPrenom" Foreground="#FFFF4848" FontSize="12"></TextBlock>
+                    </StackPanel>
+                    <StackPanel Margin="0, 20, 0, 0">
+                        <TextBlock TextWrapping="Wrap" Text="Date de naissance :" Margin="0" FontSize="22" Foreground="Gainsboro" FontFamily="Corbel Light" />
+                        <TextBox x:Name="InputDateNaissance" Margin="0,10,0,0" BorderThickness="1" Foreground="White" FontSize="18" Padding="5,5,5,5" VerticalContentAlignment="Center" FontFamily="Corbel Light" SelectionBrush="{x:Null}" BorderBrush="#FF7C7C7C">
+                            <TextBox.Background>
+                                <SolidColorBrush Color="{DynamicResource BackgroundInput}"/>
+                            </TextBox.Background>
+                        </TextBox>
+                        <TextBlock x:Name="InfoDate" Foreground="#FFFF4848" FontSize="12"></TextBlock>
+                    </StackPanel>
+                    <StackPanel Margin="0, 20, 0, 0">
+                        <TextBlock TextWrapping="Wrap" Text="Email :" Margin="0" FontSize="22" Foreground="Gainsboro" FontFamily="Corbel Light" />
+                        <TextBox x:Name="InputEmail" Margin="0,10,0,0" Background="#333" BorderThickness="1" Foreground="White" FontSize="18" Padding="5,5,5,5" VerticalContentAlignment="Center" FontFamily="Corbel Light" SelectionBrush="{x:Null}">
+                            <TextBox.BorderBrush>
+                                <SolidColorBrush Color="#FF7C7C7C"/>
+                            </TextBox.BorderBrush>
+                        </TextBox>
+                        <TextBlock x:Name="InfoMail" Foreground="#FFFF4848" FontSize="12"></TextBlock>
+                    </StackPanel>
+                    <StackPanel Margin="0, 20, 0, 0">
+                        <TextBlock TextWrapping="Wrap" Text="Votre mot de passe :" Margin="0" FontSize="22" Foreground="Gainsboro" FontFamily="Corbel Light" />
+                        <PasswordBox x:Name="InputMdp" Margin="0,10,0,0" Background="#333" BorderThickness="1" Foreground="White" FontSize="18" Padding="5,5,5,5" VerticalContentAlignment="Center" FontFamily="Corbel Light" />
+
+
+                    </StackPanel>
+                    <StackPanel Margin="0, 20, 0, 0">
+                        <TextBlock TextWrapping="Wrap" Text="Confirmer votre mot de passe :" Margin="0" FontSize="22" Foreground="Gainsboro" FontFamily="Corbel Light" />
+                        <PasswordBox x:Name="InputMdpConfirm" Margin="0,10,0,0" Background="#333" BorderThickness="1" Foreground="White" FontSize="18" Padding="5,5,5,5" VerticalContentAlignment="Center" FontFamily="Corbel Light" />
+                        <TextBlock x:Name="InfoMdp" Foreground="#FFFF4848" FontSize="12"></TextBlock>
+                    </StackPanel>
+                    <Button Width="300" x:Name="BtnInscription" Content="S'inscrire" Height="40" FontSize="24" Margin="0,20" Click="BtnInscription_Click" FontFamily="Segoe UI Semibold" Foreground="White" BorderBrush="{x:Null}" BorderThickness="3">
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Background" Value="#FF4691B4"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border CornerRadius="10" Background="{TemplateBinding Background}">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="SteelBlue"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>
+
+
